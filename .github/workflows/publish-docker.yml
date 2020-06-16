@@ -1,16 +1,19 @@
-name: Publish tagged image to DockerHub
+name: Publish latest image to GitHub docker image registry
 
 on:
-  push:
-    branch:
-      - master
+  release:
+    types: [published]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Check if current release is latest
+        run: echo "##[set-output name=is_latest;]$(sh .github/is-latest-release.sh)"
+        id: release
       - name: Publish to Registry
+        if: steps.release.outputs.is_latest == 'true'
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: meilisearch/github-issues-scraper/app
