@@ -6,4 +6,4 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem 'octokit', '~> 4.18'
 
-gem 'meilisearch', '~> 0.10.0'
+gem 'meilisearch', '~> 0.11.0'
