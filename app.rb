@@ -79,7 +79,7 @@ pull_requests.each do |pr|
 end
 
 logger.info 'Exporting documents to MeiliSearch'
-meili_index = meili_client.index(uid: 'docs')
+meili_index = meili_client.index('docs')
 meili_index.add_documents(documents_to_index.map(&:to_h))
 
 logger.info 'kthxbye'
