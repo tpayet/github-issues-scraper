@@ -4,6 +4,6 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'octokit', '~> 4.18'
+gem 'octokit', '~> 4.20'
 
 gem 'meilisearch', '~> 0.12.0'
